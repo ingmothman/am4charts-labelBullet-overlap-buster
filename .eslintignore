@@ -1,0 +1,4 @@
+node_modules/*
+src/**/__tests__/**
+dist/*
+src/**/*.test.{ts,tsx}

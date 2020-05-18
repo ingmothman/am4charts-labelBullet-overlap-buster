@@ -1,0 +1,125 @@
+{
+  "extends": [
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended",
+    "prettier",
+    "prettier/react",
+    "prettier/@typescript-eslint"
+  ],
+  "plugins": ["prettier", "jest", "@typescript-eslint"],
+  "env": {
+    "jest/globals": true,
+    "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".json"],
+        "paths": ["src"]
+      }
+    }
+  },
+  "rules": {
+    "react/jsx-filename-extension": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/prefer-stateless-function": [
+      0,
+      {
+        "ignorePureComponents": true
+      }
+    ],
+    "no-underscore-dangle": 0,
+    "import/imports-first": ["error", "absolute-first"],
+    "import/newline-after-import": "error",
+    "no-console": [
+      "error",
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "no-unused-vars": "warn",
+    "import/no-cycle": 0,
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
+    // custom TS rules
+    "no-restricted-globals": "off",
+    "jsx-a11y/anchor-has-content": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/no-angle-bracket-type-assertion": "off",
+    // END: custom TS rules
+
+    // Too restrictive, writing ugly code to defend against a very unlikely scenario: https://eslint.org/docs/rules/no-prototype-builtins
+    "no-prototype-builtins": "off",
+    // https://basarat.gitbooks.io/typescript/docs/tips/defaultIsBad.html
+    "import/prefer-default-export": "off",
+    "import/no-default-export": "off",
+    // Too restrictive: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md
+    "react/destructuring-assignment": "off",
+    // No jsx extension: https://github.com/facebook/create-react-app/issues/87#issuecomment-234627904
+    //    "react/jsx-filename-extension": "off",
+    // Use function hoisting to improve code readability
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": true,
+        "variables": true
+      }
+    ],
+    // Makes no sense to allow type inferrence for expression parameters, but require typing the response
+    "@typescript-eslint/explicit-function-return-type": [
+      "off", // must be "error"
+      {
+        "allowExpressions": true,
+        "allowTypedFunctionExpressions": true
+      }
+    ],
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": true,
+        "variables": true,
+        "typedefs": true
+      }
+    ],
+    "react/static-property-placement": "off",
+    "@typescript-eslint/ban-ts-ignore": "off", // must be error
+    "@typescript-eslint/require-await": "off", // must be error
+    "@typescript-eslint/no-inferrable-types": "off", // must be error
+    "react/state-in-constructor": "off", // must be error
+    "react/no-unescaped-entities": "off", // must be error
+    "react/prop-types": "off" // must be error
+  },
+  "globals": {
+    "performance": true,
+    "window": true,
+    "document": true,
+    "localStorage": true,
+    "fetch": true,
+    "it": true,
+    "FormData": true,
+    "FileReader": true,
+    "Blob": true,
+    "navigator": true,
+    "sessionStorage": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
+}

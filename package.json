@@ -1,0 +1,81 @@
+{
+  "name": "@am4charts/labelBullet-overlap-buster",
+  "version": "1.0.0",
+  "description": "Resolve am4charts overlapping labels",
+  "author": "Mohamad Othman",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --config=jest.config.json",
+    "lint:nofix": "eslint src/**",
+    "prettier:nofix": "prettier --check 'src/**/*.{ts, tsx}'",
+    "commit": "git-cz",
+    "prepublishOnly": "npm run build",
+    "semantic-release": "semantic-release"
+  },
+  "repository": "https://github.com/osmancode/am4charts-labelBullet-overlap-buster.git",
+  "keywords": [
+    "amcharts",
+    "amcharts4",
+    "labels",
+    "overlap"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts, tsx}": [
+      "prettier --write",
+      "eslint -c ./.eslintrc --fix"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "@types/jest": "25.1.4",
+    "@types/node": "13.9.1",
+    "@typescript-eslint/eslint-plugin": "2.24.0",
+    "commitizen": "4.0.3",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb-typescript": "7.2.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-import": "2.20.1",
+    "eslint-plugin-jest": "23.8.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-react": "7.19.0",
+    "eslint-plugin-react-hooks": "2.5.0",
+    "git-authors-cli": "1.0.23",
+    "husky": "4.2.3",
+    "jest": "25.1.0",
+    "lint-staged": "10.0.8",
+    "prettier": "1.19.1",
+    "standard-version": "7.1.0",
+    "ts-jest": "25.2.1",
+    "typescript": "3.8.3"
+  },
+  "dependencies": {
+    "@amcharts/amcharts4": "4.*.*"
+  },
+  "bugs": {
+    "url": "https://github.com/osmancode/am4charts-labelBullet-overlap-buster/issues"
+  },
+  "homepage": "https://github.com/osmancode/am4charts-labelBullet-overlap-buster#readme",
+  "contributors": [
+    "Mohamad Othman <osmancode@gmail.com>"
+  ]
+}

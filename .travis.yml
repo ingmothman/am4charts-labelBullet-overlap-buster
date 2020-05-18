@@ -1,0 +1,31 @@
+language: node_js
+cache:
+  yarn: true
+  directories:
+    - node_modules
+git:
+  depth: 3
+jobs:
+  include:
+    - stage: test
+      node_js: '10'
+      install:
+        - yarn install --ignore-engines
+      script:
+        - yarn prettier:nofix
+        - yarn lint:nofix
+        - yarn test
+      branches:
+        except:
+          - /^v\d+\.\d+\.\d+$/
+    # Define the release stage that runs semantic-release
+    - stage: release
+      if: (NOT type IN (pull_request)) AND (branch = master)
+      node_js: '10'
+      # overwrite default `script` step to skip the tests
+      script: echo "Deploying to npm ..."
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - npx semantic-release
