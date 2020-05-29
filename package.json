@@ -4,8 +4,8 @@
   "description": "Resolve am4charts overlapping labels",
   "author": "Mohamad Othman",
   "license": "MIT",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/LabelBulletOverlapBuster.js.js",
+  "types": "dist/LabelBulletOverlapBuster.js.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
